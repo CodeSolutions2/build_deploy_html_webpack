@@ -4,6 +4,15 @@
 <body>
   <h1>Title</h1>
 
-  new change
+  <button id="result_button" onclick="result_button()" style="display:block;">Button</button>
+  
+  <div id="notification" style="display:block; text-align: left; width: 600px;">
+    
+
+  <script>
+    async function result_button() {
+      document.getElementById('notification').innerHTML = 'new change';
+    }
+  </script>
 </body>
 </html>
