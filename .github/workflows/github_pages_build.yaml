@@ -1,4 +1,4 @@
-name: CI github pages
+name: CI github pages build
 
 on:
   push:
