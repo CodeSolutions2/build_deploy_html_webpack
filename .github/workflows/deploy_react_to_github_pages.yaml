@@ -40,6 +40,9 @@ jobs:
         
       - name: Step 3 - Build React app
         run: npm run build
+
+      - name: Install the `gh-pages` package
+        run: npm install gh-pages
         
       - name: Step 4 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
