@@ -37,10 +37,7 @@ jobs:
           node-version: 20
         
       - name: Step 3 - Build React app
-        run: npm run dev
-
-      - name: Install the `gh-pages` package for Node.js - maybe Step 1 does this
-        run: npm install gh-pages --save-dev
+        run: npm run build
         
       - name: Step 4 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
