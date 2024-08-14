@@ -47,18 +47,5 @@ jobs:
           # location of the artifacts
           path: "./"
 
-          
-# Deployment job
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Step 5 - Deploy React app to GitHub Pages
         run: npm run deploy
-
-      - name: Step 6 - Deploy repository changes to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
