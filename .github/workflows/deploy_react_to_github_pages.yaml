@@ -42,7 +42,7 @@ jobs:
         run: npm run build
 
       - name: Install the `gh-pages` package
-        run: npm install gh-pages
+        run: npm install -g gh-pages
         
       - name: Step 4 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
