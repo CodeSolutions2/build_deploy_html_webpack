@@ -58,19 +58,18 @@ jobs:
           git config --global user.email ${repoOwnerEmail};
           git config --global user.name ${repoOwner};
           git remote set-url origin main
-          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages -d ./ -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ github.token }}
 
 
-# Deployment job
-#   deploy:
-#     environment:
-#       name: github-pages
-#       url: ${{ steps.deployment.outputs.page_url }}
-#     runs-on: ubuntu-latest
-#     needs: build
-#     steps:
-#       - name: Step 6 - Deploy repository changes to GitHub Pages
-#         id: deployment
-#         uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
