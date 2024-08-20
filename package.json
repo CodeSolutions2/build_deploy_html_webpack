@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "npx webpack --config webpack.config.js",
+    "build": "npx webpack --config /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/webpack.config.js",
     "deploy": "gh-pages -d ./dist"
   },
   "type": "module",
