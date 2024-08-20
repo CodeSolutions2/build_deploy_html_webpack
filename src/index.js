@@ -1,6 +1,5 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
-// import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
 
 // import { App } from "./src/App.js"
 
@@ -8,7 +7,7 @@ import { createRoot } from "react-dom/client";
 
 
 const container = document.getElementById('root');
-const root = createRoot(container);
+const root = ReactDOM.createRoot(container);
 
 const element = React.createElement('div', {className: 'div_name'}, 
           React.createElement('h1', {className: 'div_name'}, 'Header Text'), 
