@@ -39,9 +39,9 @@ jobs:
           node-version: 20
 
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
-        run: npm install -g webpack webpack-cli --save-dev
+        run: npm install -g webpack webpack-cli
 
-      - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build).
+      - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
         run: |
           current_dir=$(pwd); 
           FILE_PATH=$(find $current_dir -name webpack.config.js); 
@@ -62,7 +62,7 @@ jobs:
           name: react-app-artifacts
           path: ./dist
 
-      - name: Step 7 - Deploy React app to GitHub Pages. One can also use (npm run deploy).
+      - name: Step 7 - Deploy React app to GitHub Pages. One can also use (npm run deploy) for package.json.
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
         run: |
