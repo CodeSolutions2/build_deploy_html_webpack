@@ -42,7 +42,7 @@ jobs:
         run: npm install -g webpack webpack-cli
 
       - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
-        run: npx webpack --mode=production --entry=./src/index.js --output=./dist/main.js
+        run: npx webpack --entry ./src/index.js --output_path /dist
         
       - name: Step 5 - Install gh-pages from npm
         run: npm install -g gh-pages
