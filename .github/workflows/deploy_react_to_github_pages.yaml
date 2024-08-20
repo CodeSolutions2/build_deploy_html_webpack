@@ -38,6 +38,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Print the react version
+        run: npm list react
+
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
         run: npm install -g webpack webpack-cli
 
