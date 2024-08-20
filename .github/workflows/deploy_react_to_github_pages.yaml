@@ -41,7 +41,7 @@ jobs:
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
         run: npm install webpack webpack-cli --save-dev
 
-      - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output
+      - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build).
         run: npx webpack
         
       - name: Step 5 - Install gh-pages from npm
@@ -53,7 +53,7 @@ jobs:
           name: react-app-artifacts
           path: ./dist
 
-      - name: Step 7 - Deploy React app to GitHub Pages
+      - name: Step 7 - Deploy React app to GitHub Pages. One can also use (npm run deploy).
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
         run: |
