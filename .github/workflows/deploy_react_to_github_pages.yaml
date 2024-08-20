@@ -42,7 +42,15 @@ jobs:
         run: npm install webpack webpack-cli --save-dev
 
       - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build).
-        run: cd /home/runner/work; npx webpack
+        run: |
+          current_dir=$(pwd); 
+          FILE_PATH=$(find $current_dir -name webpack.config.js); 
+          echo "FILE_PATH = ${FILE_PATH}";
+          
+          NODE_PATH=$(find $current_dir -name webpack-cli.js); 
+          echo "NODE_PATH = ${NODE_PATH}"; 
+          echo "NODE_PATH=${NODE_PATH}" >> $GITHUB_ENV;
+          npx webpack
         
       - name: Step 5 - Install gh-pages from npm
         run: npm install -g gh-pages
