@@ -39,7 +39,7 @@ jobs:
           node-version: 20
 
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
-        run: npm install -g webpack webpack-cli
+        run: npm install -g react; npm install -g react-dom; npm install -g webpack webpack-cli
 
       - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
       # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
