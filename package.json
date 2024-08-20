@@ -1,11 +1,17 @@
 {
-  "homepage": "https://codesolutions2.github.io/temp_repo_GithubPagesDeploymentTests",
-  "name": "index",
-  "private": true,
+  "name": "react build-deploy",
   "version": "0.0.0",
-  "type": "module",
+  "description": "",
+  "private": true,
   "scripts": {
-    "build": "gh-pages -d ./",
-    "deploy": ""
-  }
+    "build": "webpack",
+    "deploy": "gh-pages -d ./dist"
+  },
+  "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "devDependencies": {
+     "webpack": "^5.4.0",
+     "webpack-cli": "^4.2.0"
+   }
 }
