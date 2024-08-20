@@ -42,16 +42,7 @@ jobs:
         run: npm install -g webpack webpack-cli
 
       - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
-        run: |
-          current_dir=$(pwd); 
-          FILE_PATH=$(find $current_dir -name webpack.config.js); 
-          echo "FILE_PATH = ${FILE_PATH}";
-          echo "FILE_PATH=${FILE_PATH}" >> $GITHUB_ENV;
-          
-          NODE_PATH=$(find $current_dir -name webpack-cli.js); 
-          echo "NODE_PATH = ${NODE_PATH}"; 
-          # echo "NODE_PATH=${NODE_PATH}";
-          npx webpack --config /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/webpack.config.js;
+        run: npx webpack --mode=production --entry=./src/index.js --output=./dist/main.js
         
       - name: Step 5 - Install gh-pages from npm
         run: npm install -g gh-pages
@@ -73,5 +64,3 @@ jobs:
           git config --global user.name ${repoOwner};
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
           npx gh-pages -d ./dist -u "github-actions-bot <support+actions@github.com>"
-
-        
