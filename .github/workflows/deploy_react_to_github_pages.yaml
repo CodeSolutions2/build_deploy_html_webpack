@@ -57,7 +57,7 @@ jobs:
           
           git config --global user.email ${repoOwnerEmail};
           git config --global user.name ${repoOwner};
-          git remote set-url origin https://${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
           npm run build
 
         
