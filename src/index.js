@@ -15,4 +15,7 @@
 
 // root.render(element);
 
-Text
+
+const helloDiv = document.createElement("div");
+helloDiv.innerHTML = "Hello from Node.js!";
+document.body.append(helloDiv);
