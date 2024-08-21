@@ -52,7 +52,7 @@ jobs:
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git
-          npx webpack --entry "./src/index.js" --output-path "./dist" --mode "none"
+          npx webpack --entry ["./src/index.js"] --output-path "dist/" --mode "none"
         
       - name: Step 5 - Install gh-pages from npm
         run: npm install -g gh-pages
@@ -68,9 +68,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
         run: |
           repoOwner=$(echo "${{ github.repository }}" | cut -d '/' -f 1);
+          echo "repoOwner=${repoOwner}";
+          
           repoOwnerEmail="j622amilah@gmail.com";
+          
           repoName=$(echo "${{ github.repository }}" | cut -d '/' -f 2);
+          echo "repoName=${repoName}";
+          
           git config --global user.email ${repoOwnerEmail};
           git config --global user.name ${repoOwner};
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
-          npx gh-pages -d "./dist" -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages -d "./dist"
