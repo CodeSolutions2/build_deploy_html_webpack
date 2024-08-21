@@ -73,4 +73,4 @@ jobs:
           git config --global user.email ${repoOwnerEmail};
           git config --global user.name ${repoOwner};
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
-          # npx gh-pages -d ./dist -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages -d ./dist -u "github-actions-bot <support+actions@github.com>"
