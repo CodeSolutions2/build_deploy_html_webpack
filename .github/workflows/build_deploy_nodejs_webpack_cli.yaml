@@ -39,8 +39,7 @@ jobs:
 
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
         run: |
-          npm install -g react; 
-          npm install -g react-dom; 
+          npm install react@latest react-dom@latest --save;
           npm install -g webpack webpack-cli
 
       - name: Step 4 - Compile the files  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
@@ -51,7 +50,7 @@ jobs:
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git
-          npx webpack --entry "./src/index.js" --output-path "dist/" --mode "none"
+          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --mode "none"
         
       - name: Step 5 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
