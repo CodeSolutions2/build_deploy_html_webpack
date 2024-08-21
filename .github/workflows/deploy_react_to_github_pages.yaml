@@ -52,7 +52,7 @@ jobs:
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git
-          npx webpack --entry ./src/index.js --output-path dist
+          npx webpack --entry "[./src/index.js]" --output-path "dist" --mode "none"
         
       - name: Step 5 - Install gh-pages from npm
         run: npm install -g gh-pages
