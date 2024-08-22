@@ -78,7 +78,7 @@ jobs:
             // Need a way to plug-in the main_js contents into ./dist/nodejs_reference_index.html
             
             
-            // fs.writeFileSync('./dist/index.html', compiled_html);
+            fs.writeFileSync('./dist/index.html', compiled_html);
             // Does not save the file to the repository
             
       - name: Step 6 - Upload Artifact - update files in the repository
