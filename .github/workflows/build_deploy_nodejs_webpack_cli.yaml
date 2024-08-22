@@ -51,6 +51,9 @@ jobs:
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none";
+          git add .dist/main.js
+          git commit -m "Updating repository"
+          git push
 
       - name: Step 5 - Print/Compile (main.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
       # Node.js can be used in many ways- 0. it is a JavaScript derived language that has a library packing system, 1. it is a type of browser/networking environment without a graphical interface, that sends/receives data to a port. Any Node.js file reader can read an html file that references a javaScript file, written in Node.js and then display the correct HTML file. The type of file that one inputs into a Node.js file reader, one receives the same output file type. Thus, if an HTML file is inputted into a file reader the corresponding output will be an HTML file. 
@@ -64,14 +67,13 @@ jobs:
             const fs = require('fs');
 
             // Read main.js to confirm it has access
-            const main_js = await fs.promises.readFile('/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js', 'utf8');
-            console.log('main_js: ', main_js);
+            // const main_js = await fs.promises.readFile('/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js', 'utf8');
+            // console.log('main_js: ', main_js);
             
-            const compiled_html = await fs.promises.readFile('/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/nodejs_reference_index.html', 'utf8');
+            const compiled_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
+            console.log('compiled_html: ', compiled_html.slice(0,100));
             
-            console.log('compiled_html: ', compiled_html);
-            
-            fs.writeFileSync('dist/index.html', compiled_html);
+            fs.writeFileSync('./dist/index.html', compiled_html);
             
       - name: Step 6 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
