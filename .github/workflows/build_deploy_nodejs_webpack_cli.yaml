@@ -77,11 +77,21 @@ jobs:
 
             // Need a way to plug-in the main_js contents into ./dist/nodejs_reference_index.html
             
-            
             fs.writeFileSync('./dist/index.html', compiled_html);
-            // Does not save the file to the repository
+            // RESULT: Does not save the file to the repository
             
-      - name: Step 6 - Upload Artifact - update files in the repository
+      - name: Step 6 - Save index.html to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
+        run: |
+          git config --global user.email "j622amilah@gmail.com";
+          git config --global user.name "CodeSolutions2";
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
+          git add ./dist/index.html
+          git commit -m "Updating repository"
+          git push
+            
+      - name: Step 7 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
         with:
           # location of the artifacts
