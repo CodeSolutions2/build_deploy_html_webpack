@@ -65,6 +65,8 @@ jobs:
             
             const compiled_html = await fs.promises.readFile('/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/nodejs_reference_index.html', 'utf8');
             
+            console.log('compiled_html: ', compiled_html);
+            
             fs.writeFileSync('dist/index.html', compiled_html);
             
       - name: Step 6 - Upload Artifact - update files in the repository
