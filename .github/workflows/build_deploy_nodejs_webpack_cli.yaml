@@ -69,11 +69,17 @@ jobs:
             // Read main.js to confirm it has access
             // const main_js = await fs.promises.readFile('/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js', 'utf8');
             // console.log('main_js: ', main_js);
+            // RESULT: the main_js is node.js text
             
             const compiled_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
             console.log('compiled_html: ', compiled_html.slice(0,100));
+            // RESULT: compiled_html is the text in the ./dist/nodejs_reference_index.html file without inserting the main_js text into it
+
+            // Need a way to plug-in the main_js contents into ./dist/nodejs_reference_index.html
             
-            fs.writeFileSync('./dist/index.html', compiled_html);
+            
+            // fs.writeFileSync('./dist/index.html', compiled_html);
+            // Does not save the file to the repository
             
       - name: Step 6 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
