@@ -18,7 +18,7 @@ import { createRoot } from 'react-dom/client';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const element = React.createElement('div', {className: 'div_element'}, 
-                                    React.createElement('h1', {className: 'h1_element', onLoadStart: () => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; document.querySelector('.h1_element').style.color = random_HEX_color;}}, 'Header Text'), 
+                                    React.createElement('h1', {className: 'h1_element', onLoadStart: (event) => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; event.target.style.color = random_HEX_color;}}, 'Header Text'), 
                                     React.createElement('p', {className: 'p_element'}, 'Paragraph Text'));
 
 
