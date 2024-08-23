@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 // import "./style.css";
-// import * as css from "style.css";
+import * as css from "style.css";
 
 // import { App } from "./src/App.js"
 
@@ -15,13 +15,13 @@ import { createRoot } from 'react-dom/client';
 // -----------------------------------------
 
 // [1] Building-Deploying React code using Node.js with JavaScript notation: 
-// const container = document.getElementById('root');
-// const root = createRoot(container);
+const container = document.getElementById('root');
+const root = createRoot(container);
 
 // Try 1: change color with onLoadStart
-// const element = React.createElement('div', {className: 'div_element'}, 
-//                                     React.createElement('h1', {className: 'h1_element', onLoadStart: (event) => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; event.target.style.color = random_HEX_color;}}, 'Header Text'), 
-//                                     React.createElement('p', {className: 'p_element'}, 'Paragraph Text'));
+const element = React.createElement('div', {className: 'div_element'}, 
+                                    React.createElement('h1', {className: 'h1_element', onLoadStart: (event) => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; event.target.style.color = random_HEX_color;}}, 'Header Text'), 
+                                    React.createElement('p', {className: 'p_element'}, 'Paragraph Text'));
 // RESULT: text color does not change
 
 
@@ -33,15 +33,15 @@ import { createRoot } from 'react-dom/client';
 // -----------------------------------------
 
 // [2] Building-Deploying React code using Node.js notation: 
-const container = document.getElementById('root');
-const root = createRoot(container);
+// const container = document.getElementById('root');
+// const root = createRoot(container);
 
-const element = (
-        <div className="div_element">
-            <h1 className="h1_element" onLoadStart: (event) => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; event.target.style.color = random_HEX_color;}>Header Text</h1>
-            <p className="p_element">Paragraph Text</p>
-        </div>
-)
+// const element = (
+//         <div className="div_element">
+//             <h1 className="h1_element" onLoadStart: (event) => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; event.target.style.color = random_HEX_color;}>Header Text</h1>
+//             <p className="p_element">Paragraph Text</p>
+//         </div>
+// )
 
 // -----------------------------------------
                                                         
