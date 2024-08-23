@@ -4,6 +4,12 @@
         <div id="root"></div>
         <script src="main.js"></script>
         <script>
+            window.addEventListener('beforeunload', function() {
+        	    window.location.href = window.location.href + '?nocache=' + new Date().getTime();
+            });
+            
+            // -------------------------------------------------
+            
             const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
             document.querySelector('.h1_element').style.color = random_HEX_color;
         </script>
