@@ -3,5 +3,10 @@
     <body>
         <div id="root"></div>
         <script src="main.js"></script>
+        <script>
+            const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
+            document.querySelector('.h1_element').style.color = random_HEX_color;
+        </script>
+        
     </body>
 </html>
