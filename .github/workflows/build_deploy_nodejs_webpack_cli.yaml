@@ -40,8 +40,23 @@ jobs:
       - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
         run: |
           npm install react@latest react-dom@latest;
+          npm install -g webpack webpack-cli;
 
-      - name: Step 4 - Print/Compile (index.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
+      - name: Step 4 - Reduce many linked files into one output file (main.js)  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
+      # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
+        run: |
+          git config --global user.email "j622amilah@gmail.com";
+          git config --global user.name "CodeSolutions2";
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
+          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none";
+          git reset
+          git add /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js
+          git commit -m "Updating repository"
+          git push
+
+      - name: Step 5 - Print/Compile (main.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
       # Node.js can be used in many ways- 0. it is a JavaScript derived language that has a library packing system, 1. it is a type of browser/networking environment without a graphical interface, that sends/receives data to a port. Any Node.js file reader can read an html file that references a javaScript file, written in Node.js and then display the correct HTML file. The type of file that one inputs into a Node.js file reader, one receives the same output file type. Thus, if an HTML file is inputted into a file reader the corresponding output will be an HTML file. 
       # Idea 0: just read the index.html file using the file reader and save the output html to the repository.
         uses: actions/github-script@v6
@@ -53,16 +68,18 @@ jobs:
             const fs = require('fs');
             
             const output_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
+            console.log('output_html: ', output_html.slice(0,100));
+            // RESULT: output_html is the text in the ./dist/nodejs_reference_index.html file without inserting the main_js text into it
             
             fs.writeFileSync('./dist/index.html', output_html);
             // RESULT: Does not save the file to the repository, but deploy job seems to deploy the page
             
-      - name: Step 5 - Upload Artifact - update files in the repository
+            
+      - name: Step 6 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
         with:
           # location of the artifacts
           path: "./dist"
-
 
   deploy:
     environment:
