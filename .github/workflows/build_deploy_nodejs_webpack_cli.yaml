@@ -72,11 +72,11 @@ jobs:
             // console.log('main_js: ', main_js);
             // RESULT: the main_js is node.js text
             
-            const compiled_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
-            console.log('compiled_html: ', compiled_html.slice(0,100));
-            // RESULT: compiled_html is the text in the ./dist/nodejs_reference_index.html file without inserting the main_js text into it
+            const output_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
+            console.log('output_html: ', output_html.slice(0,100));
+            // RESULT: output_html is the text in the ./dist/nodejs_reference_index.html file without inserting the main_js text into it
             
-            fs.writeFileSync('./dist/index.html', compiled_html);
+            fs.writeFileSync('./dist/index.html', output_html);
             // RESULT: Does not save the file to the repository, but deploy job seems to deploy the page
             
      #  - name: Step 6 - Save index.html to repository
