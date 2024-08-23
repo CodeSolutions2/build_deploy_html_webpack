@@ -33510,9 +33510,6 @@ const element = react__WEBPACK_IMPORTED_MODULE_0___default().createElement('div'
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement('h1', {className: 'h1_element'}, 'Header Text'), 
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement('p', {className: 'p_element'}, 'Paragraph Text'));
 
-const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
-document.querySelector('.h1_element').style.color = random_HEX_color;
-
 root.render(element);
 // OR
 // ReactDOM.render(<App />, container)
