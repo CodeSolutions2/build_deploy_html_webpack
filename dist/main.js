@@ -33506,10 +33506,12 @@ __webpack_require__.r(__webpack_exports__);
 // [1] Building-Deploying React code using Node.js: 
 const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
-const element = react__WEBPACK_IMPORTED_MODULE_0___default().createElement('div', {className: 'div_name'}, 
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('h1', {className: 'h1_element'}, 'Header Text'), 
+const element = react__WEBPACK_IMPORTED_MODULE_0___default().createElement('div', {className: 'div_element'}, 
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('h1', {className: 'h1_element', onLoadStart: () => {const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`; document.querySelector('.h1_element').style.color = random_HEX_color;}}, 'Header Text'), 
                                     react__WEBPACK_IMPORTED_MODULE_0___default().createElement('p', {className: 'p_element'}, 'Paragraph Text'));
 
+
+                                                        
 root.render(element);
 // OR
 // ReactDOM.render(<App />, container)
