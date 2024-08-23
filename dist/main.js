@@ -33489,6 +33489,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(3);
 
 
+// import "./style.css";
+// import * as css from "style.css";
 
 // import { App } from "./src/App.js"
 
@@ -33505,8 +33507,12 @@ __webpack_require__.r(__webpack_exports__);
 const container = document.getElementById('root');
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
 const element = react__WEBPACK_IMPORTED_MODULE_0___default().createElement('div', {className: 'div_name'}, 
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('h1', {className: 'div_name'}, 'Header Text'), 
-                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('p', null, 'Paragraph Text: Another Change!'));
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('h1', {className: 'h1_element'}, 'Header Text'), 
+                                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement('p', {className: 'p_element'}, 'Paragraph Text'));
+
+const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
+document.querySelector('.h1_element').style.color = random_HEX_color;
+
 root.render(element);
 // OR
 // ReactDOM.render(<App />, container)
