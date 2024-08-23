@@ -51,6 +51,7 @@ jobs:
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none";
+          git reset
           git add /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js
           git commit -m "Updating repository"
           git push
@@ -74,11 +75,9 @@ jobs:
             const compiled_html = await fs.promises.readFile('./dist/nodejs_reference_index.html', 'utf8');
             console.log('compiled_html: ', compiled_html.slice(0,100));
             // RESULT: compiled_html is the text in the ./dist/nodejs_reference_index.html file without inserting the main_js text into it
-
-            // Need a way to plug-in the main_js contents into ./dist/nodejs_reference_index.html
             
             fs.writeFileSync('./dist/index.html', compiled_html);
-            // RESULT: Does not save the file to the repository
+            // RESULT: Does not save the file to the repository, but deploy job seems to deploy the page
             
      #  - name: Step 6 - Save index.html to repository
      #    env:
@@ -90,7 +89,7 @@ jobs:
      #      git add ./dist/index.html
      #      git commit -m "Updating repository"
      #      git push
-    # RESULT: has the same template as ./dist/nodejs_reference_index.html; reference to main.js
+     # RESULT: has the same template as ./dist/nodejs_reference_index.html; with reference to main.js
             
       - name: Step 6 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
