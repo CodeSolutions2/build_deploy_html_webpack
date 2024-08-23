@@ -89,7 +89,7 @@ jobs:
      #      git add ./dist/index.html
      #      git commit -m "Updating repository"
      #      git push
-     # RESULT: has the same template as ./dist/nodejs_reference_index.html; with reference to main.js
+     # RESULT: has the same template as ./dist/nodejs_reference_index.html; with reference to main.js. If I save index.html to the repository, it does not print/render the webapp with the node.js code.
             
       - name: Step 6 - Upload Artifact - update files in the repository
         uses: actions/upload-pages-artifact@v3
