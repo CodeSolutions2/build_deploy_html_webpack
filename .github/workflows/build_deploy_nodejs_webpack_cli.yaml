@@ -52,7 +52,8 @@ jobs:
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-loader "css-loader";
-          git reset
+          # git reset
+          git update-index --skip-worktree node_modules/ package-lock.json package.json
           git add /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js
           git commit -m "Updating repository"
           git push
