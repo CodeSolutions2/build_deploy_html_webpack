@@ -57,7 +57,7 @@ jobs:
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
-          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use ["style-loader", "css-loader"];
+          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-loader "css-loader" --module-rules-loader "style-loader";
           
     # - name: (optional) obtain the pre-compiled file main.js
     #     run: |
