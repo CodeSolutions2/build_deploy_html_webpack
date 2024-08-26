@@ -37,6 +37,15 @@ jobs:
         with:
           node-version: 20
 
+      - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
+        run: |
+          npm install react@latest react-dom@latest --save;
+          npm install --global webpack;
+          npm install --g webpack;
+          npm install --save-dev webpack-cli;
+          npm install --D webpack-cli;
+          npm install --save-dev style-loader css-loader;
+
       - name: Step 4 - Reduce many linked files into one output file (main.js)  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
       # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
         env:
