@@ -37,17 +37,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Step 3 - Install the React compiler - it converts the files in to browser readable files
-        run: |
-          npm install react@latest react-dom@latest --save;
-          npm install -g webpack webpack-cli;
-          npm install --save-dev style-loader css-loader;
-
       - name: Step 4 - Reduce many linked files into one output file (main.js)  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
       # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN || github.token }}
         run: |
+          npm install react@latest react-dom@latest --save;
+          npm install -g webpack webpack-cli;
+          npm install --save-dev style-loader css-loader;
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
