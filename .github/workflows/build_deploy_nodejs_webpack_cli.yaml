@@ -61,6 +61,7 @@ jobs:
     #       git config --global user.email ${repoOwnerEmail};
     #       git config --global user.name ${repoOwner};
     #       git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${repoOwner}/${repoName}.git
+    #       git reset  
     #       git add /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/main.js
     #       git commit -m "get main.js to understand compile process"
     #       git push
