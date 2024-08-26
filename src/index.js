@@ -44,6 +44,15 @@ const element = React.createElement('div', {className: 'div_element'},
 // )
 
 // -----------------------------------------
+
+var out = () => { 
+  // Saves and maintains the count state from previous usage
+  const [count, functionName_setCount] = React.useState(0);
+  return count; 
+}
+console.log('out: ', out);
+
+// -----------------------------------------
                                                         
 root.render(element);
 // OR
