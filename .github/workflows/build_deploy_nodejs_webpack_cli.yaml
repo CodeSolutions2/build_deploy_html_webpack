@@ -64,7 +64,7 @@ jobs:
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
 
           npm install -D @webpack-cli/generators;
-          printf 'MiniCssExtractPlugin\nnpm' | npx webpack plugin MiniCssExtractPlugin;
+          printf 'MiniCssExtractPlugin\ny' | npx webpack plugin MiniCssExtractPlugin;
           
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use "css-loader";
           
