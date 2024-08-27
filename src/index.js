@@ -1,9 +1,8 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
 // import "./style.css";
-//import * as css from "./style.css";
 
-// import { App } from "./src/App.js"
+// import { App } from "./App.js"
 
 // -----------------------------------------
 
@@ -42,15 +41,6 @@ const element = React.createElement('div', {className: 'div_element'},
 //             <p className="p_element">Paragraph Text</p>
 //         </div>
 // )
-
-// -----------------------------------------
-
-var out = () => { 
-  // Saves and maintains the count state from previous usage
-  const [count, functionName_setCount] = React.useState(0);
-  return count; 
-}
-console.log('out: ', out);
 
 // -----------------------------------------
                                                         
