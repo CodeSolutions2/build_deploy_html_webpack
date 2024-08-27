@@ -51,7 +51,7 @@ jobs:
           npm install --save-dev webpack-cli;
           npm install --D webpack-cli;
           
-          npm install --save-dev css-loader;
+          npm install --save-dev style-loader css-loader;
 
       - name: Step 4 - Reduce many linked files into one output file (main.js)  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
       # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
@@ -61,7 +61,7 @@ jobs:
           git config --global user.email "j622amilah@gmail.com";
           git config --global user.name "CodeSolutions2";
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
-          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use "css-loader";
+          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use "style-loader" --module-rules-use-loader "css-loader";
           
       - name: Step 5 - Print/Compile (main.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
         uses: actions/github-script@v6
