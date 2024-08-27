@@ -25,8 +25,7 @@ const element = React.createElement('div', {className: 'div_element'},
 
 
 // Try 0: change color here
-const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
-document.getElementById('h1').style.color = random_HEX_color;
+// const random_HEX_color = () =>  `#${Math.random().toString(16).slice(2,8)}`;
 // document.querySelector('.h1_element').style.color = random_HEX_color;
 // RESULT: Error, could not recognize className h1_element
 
