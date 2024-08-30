@@ -54,6 +54,8 @@ jobs:
           npm install --save-dev style-loader css-loader;
           npm install --save-dev mini-css-extract-plugin;
 
+          npm install -D babel-loader @babel/core @babel/preset-env;
+
       - name: Step 4 - Reduce many linked files into one output file (main.js)  - src/index.js input will create dist/main.js output. One can also use (npm run build) for package.json.
       # Without configuration file: https://webpack.js.org/api/cli/#without-configuration-file
         env:
@@ -66,7 +68,7 @@ jobs:
           npm install -D @webpack-cli/generators;
           yes | npx webpack plugin MiniCssExtractPlugin;
           
-          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use "css-loader";
+          npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use "css-loader" --module-rules-test /\.js$/ --module-rules-use "babel-loader";
           
       - name: Step 5 - Print/Compile (main.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
         uses: actions/github-script@v6
