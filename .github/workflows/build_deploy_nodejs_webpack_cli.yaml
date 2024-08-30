@@ -71,11 +71,6 @@ jobs:
           yes | npx webpack plugin MiniCssExtractPlugin;
           
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use-loader "style-loader" --module-rules-use-loader "css-loader" --module-rules-use "css-loader" --module-rules-test /\.js$/ --module-rules-use "babel-loader";
-          cp /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/index.html /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/nodejs_reference_index.html;
-          git reset
-          git add /home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/nodejs_reference_index.html
-          git commit -m "Updating repository"
-          git push
           
       - name: Step 5 - Print/Compile (main.js via index.html) using Node.js. Read the main.js file via index.html, push the output html to repository
         uses: actions/github-script@v6
