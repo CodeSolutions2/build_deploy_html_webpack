@@ -52,6 +52,7 @@ jobs:
           npm install --D webpack-cli;
           
           npm install --save-dev style-loader css-loader;
+          npm install --save-dev html-webpack-plugin;
           npm install --save-dev mini-css-extract-plugin;
 
           npm install -D babel-loader @babel/core @babel/preset-env;
@@ -66,6 +67,7 @@ jobs:
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/CodeSolutions2/temp_repo_GithubPagesDeploymentTests.git;
 
           npm install -D @webpack-cli/generators;
+          yes | npx webpack plugin HtmlWebpackPlugin;
           yes | npx webpack plugin MiniCssExtractPlugin;
           
           npx webpack --entry "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/src/index.js" --output-path "/home/runner/work/temp_repo_GithubPagesDeploymentTests/temp_repo_GithubPagesDeploymentTests/dist/" --output-filename "main.js" --define-process-env-node-env "none" --optimization-node-env "none" --module-rules-test /\.css$/i --module-rules-use-loader "style-loader" --module-rules-use-loader "css-loader" --module-rules-use "css-loader" --module-rules-test /\.js$/ --module-rules-use "babel-loader";
